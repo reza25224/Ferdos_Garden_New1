@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+بخش های باغ 
+{% endblock title %}
+
+{% block content %}
+  <div class="row" style="margin-right: 50px;">
+        {% for place in section %}
+      <div class="col-sm-6 col-sm-4 col-lg-4">
+          <div class="thumbanil">
+            <img src="{{media_url}}/{{place.image}}" alt="" class="img-300">
+          </div>
+          <br>
+          <div class="caption">
+            <h4>{{place.title}}</h4>
+            <p class="description">{{place.description}}</p>
+            <p>
+              <a href="{% url 'places:section_detail' id=place.id %}" class="btn1">مشاهده جزئیات</a>
+            </p>
+          </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock content %}

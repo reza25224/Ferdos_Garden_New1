@@ -1,0 +1,92 @@
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('../fonts/vaziri/webfonts/Vazirmatn[wght].woff2') format('woff2 supports variations'),
+       url('../fonts/vaziri/webfonts/Vazirmatn[wght].woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Vazirmatn RD';
+  src: url('../fonts/vaziri/webfonts/Vazirmatn-RD[wght].woff2') format('woff2 supports variations'),
+       url('../fonts/vaziri/webfonts/Vazirmatn-RD[wght].woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+.body{
+    direction: rtl;
+    font-family: Vazirmatn;
+    font-weight: 400;
+}
+
+.header{
+    width: auto;
+    height: 100px;
+    background-color: aquamarine;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+        
+}
+
+.left-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-right: 20px;
+}
+
+.logo-circle {
+width: 70px;
+height: 70px;
+border-radius: 50%;
+border: 3px solid #2c3e50; 
+overflow: hidden;
+display: inline-block;
+box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+
+}
+.logo-circle img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+
+}
+
+.img-300 {
+  width: 300px;
+  height: 200px;
+  
+}
+.description {
+  max-height: 200px;
+  max-width: 300px;
+  overflow: hidden;
+}
+
+.btn1{
+  display: inline-block;
+  width: 300px;
+  height: 40px;
+  text-align: center;
+  padding: 5px;
+  background-color: #4da6ff; /* رنگ زمینه */
+  color: #fff;
+  text-decoration: none; /* حذف خطوط زیرlink در حالت پیش‌فرض مرورگر */
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 6px; /* گرد بودن گوشه‌ها در صورت نیاز */
+  box-shadow: 0 2px 4px rgba(0,0,0,.15);
+  
+  
+}
+
+.btn.primary{
+  background-color: yellow;
+}
+btn.block{
+  background-color: blue;
+}

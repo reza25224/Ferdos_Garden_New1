@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+بخش های باغ 
+{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <div class="caption">
+            <h4>{{section_detail.title}}</h4>
+        </div>
+        <hr>
+        <div class="thumbanil">
+                <img src="{{media_url}}/{{section_detail.image}}" alt="" class="img-300">
+        </div>
+        <br>
+        <div>
+            <p>{{section_detail.ruls}}</p>
+        </div>
+        <hr>
+        <div>
+            <p>روزهای بازدید : {{section_detail.visiting_day}}</p>
+        </div>
+        <hr>
+        <div>
+            <p>ساعت بازدید : {{section_detail.visiting_hour }}</p>
+        </div>
+    </div>
+{% endblock content %}
