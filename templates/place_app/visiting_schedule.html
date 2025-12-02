@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+برنامه بازدید 
+{% endblock title %}
+
+{% block content %}
+    <h5> زمان بازدید :</h5>
+    <hr>
+    <ul>
+        {% for place in place %}
+        <li>
+             <strong>{{place.title}}</strong> : <span class="value1">{{place.visiting_day}}</span>  |
+                                                <span class="value1">{{place.visiting_hour}}</span> 
+                                                             
+        </li>
+        {% endfor %}
+    </ul>
+    <br>
+    <h5> بهای بلیط : </h5>
+    <hr>
+    <ul>
+        {% for price in price %}
+        <li>
+            <span>بهای بلیط </span>
+             <strong>{{price.place}}</strong> 
+             <span>برای بازدید کننده</span>
+             <span class="value2">{{price.visitor_type}}</span>  
+             <span> : </span>
+             <span class="value1">{{price.price}}</span>
+             <span> ریال </span>
+                                                             
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

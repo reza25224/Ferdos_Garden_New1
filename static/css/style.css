@@ -90,3 +90,10 @@ object-fit: cover;
 btn.block{
   background-color: blue;
 }
+
+.value1{
+  color: red;
+}
+.value2{
+  color: blue;
+}
