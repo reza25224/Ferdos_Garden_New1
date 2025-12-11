@@ -10,3 +10,5 @@ urlpatterns = [
     path('visiting_schedule',views.visiting_schedule , name = 'visiting_schedule'),
 
 ]
+
+

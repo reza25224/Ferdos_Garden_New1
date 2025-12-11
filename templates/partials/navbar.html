@@ -32,11 +32,20 @@
           <li class="nav-item">
             <a class="nav-link" href="#">گالری</a>
           </li>
-                    <li class="nav-item">
+           <li class="nav-item">
             <a class="nav-link" href="#">خاطرات بازدید</a>
           </li>
-                    <li class="nav-item">
+           <li class="nav-item">
             <a class="nav-link" href="#">آموزش و پژوهش</a>
+          </li>
+          <li class="nav-item dropdown">
+           <a class="nav-link dropdown-toggle active" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              بلاگ
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+            <li><a class="dropdown-item" href="{% url 'blog:blog_view' %}">لیست مقاله ها</a></li>
+            <li><a class="dropdown-item" href="{% url 'blog:blog_create' %}">ثبت مقاله جدید</a></li>
+            </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">تماس با ما</a>
