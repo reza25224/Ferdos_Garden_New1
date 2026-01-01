@@ -6,16 +6,16 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog', '0001_initial'),
+        ('Article', '0001_initial'),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='blog',
+            name='Article',
             options={'verbose_name': 'وبلاک', 'verbose_name_plural': 'وبلاگ ها'},
         ),
         migrations.AlterModelTable(
-            name='blog',
+            name='Article',
             table='t_blog',
         ),
     ]

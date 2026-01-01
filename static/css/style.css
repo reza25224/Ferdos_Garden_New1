@@ -97,3 +97,54 @@ btn.block{
 .value2{
   color: blue;
 }
+/* جدول */
+table {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background-color: #fff;
+}
+
+/* سرستون‌ها */
+table th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* سلول‌ها */
+table td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+}
+
+/* ردیف‌های زوج */
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* هاور روی ردیف */
+table tr:hover {
+    background-color: #e6ffe6;
+    cursor: pointer;
+}
+
+/* گرد کردن گوشه‌ها */
+table {
+    border-radius: 6px;
+    overflow: hidden;
+}
+/* فاصله بین جستجو و جدول */
+.dataTables_filter {
+    margin-bottom: 15px; /* فاصله پایین جستجو */
+}
+
+/* فاصله بین جدول و صفحه‌بندی */
+.dataTables_paginate {
+    margin-top: 15px;
+}

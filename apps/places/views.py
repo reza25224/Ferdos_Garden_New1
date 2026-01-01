@@ -8,8 +8,8 @@ from django.http import HttpResponse,HttpResponseNotFound
 def garden_history(request):
     return render(request,'place_app/history.html')
 
-def garden_section(request):
-    return render (request,'place_app/section.html')
+# def garden_section(request):
+#     return render (request,'place_app/section.html')
 
 #بخش های باغ----------------------------------------------------------
 # class SectionList(ListView):

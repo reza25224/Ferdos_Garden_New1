@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    لیست مقالات
+{% endblock title %}
+
+{% block content %}
+    <h3 style="text-align: center;"> لیست مقالات</h3>
+    <div class="container">
+    <table id="lastPricesTable" class="display">
+        <thead>
+            <tr>
+                <th style="text-align: center;">عنوان مقاله</th>
+                <th style="text-align: center;">تصویر</th>                
+                <th style="text-align: center;">خلاصه متن</th>
+                <th style="text-align: center;">نویسندگان</th>
+                <th style="text-align: center;">گروه</th>
+                <th style="text-align: center;">تاریخ به روز رسانی</th>
+                <th style="text-align: center;">تعداد بازدید</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for Article in Articles %}
+                <tr>
+                    <td>{{ Article.title }}</td>
+                    <td>
+                        <img src="{{ media_url }}{{ Article.main_image }}" 
+                             style="width: 240px; vertical-align: middle; margin: 0 0 0 12px;" 
+                             alt="تصویر مقاله">
+                    </td>                    
+                    <td>{{ Article.description }}</td>
+                    <td>
+                        {% for writer in Article.author.all %}
+                            {{ writer.name }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>{{ Article.article_group }}</td>
+                    <td>{{ Article.update_date }}</td>
+                    <td>{{ Article.number_of_visit }}</td>
+                    <td>
+                        <a href="">مشاهده جزییات</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+    <!-- بارگذاری کتابخانه‌های DataTables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+    <script>
+    $(document).ready(function() {
+        $('#lastPricesTable').DataTable({
+            language: {
+                url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/fa.json' // فارسی‌سازی
+            },
+            pageLength: 10,   // تعداد ردیف‌ها در هر صفحه
+            lengthMenu: [5, 10, 25, 50], // گزینه‌های انتخاب تعداد
+            ordering: true,   // مرتب‌سازی ستون‌ها
+            searching: true   // جستجو در جدول
+        });
+
+    });
+     </script>
+{% endblock content %}
