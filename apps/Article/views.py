@@ -8,7 +8,7 @@ from django.conf import settings
 
 
 
-#--------------------------------------------------------------------------------------------------------
+#-------------------------------------------------------Article_view
 def Article_view(request):
     article = Article.objects.all()
     context = {
@@ -19,7 +19,15 @@ def Article_view(request):
     
     return render (request , 'article_app/article.html',context)
     
-#------------------------------------------------------------------------------------------
+#-------------------------------------------------------article_detaile
+def article_detaile(request,id):
+    article_detaile = Article.objects.get(id=id)
+    context = {
+        'article_detaile': article_detaile
+    }
+    return render (request , 'article_app/article_detaile.html', context)
+
+#--------------------------------------------------------Article_create
 def Article_create(request):
     if request.method == 'POST':
         form = ArticleForm(request.POST, request.FILES)

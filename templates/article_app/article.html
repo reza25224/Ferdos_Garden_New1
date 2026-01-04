@@ -31,17 +31,17 @@
                              style="width: 240px; vertical-align: middle; margin: 0 0 0 12px;" 
                              alt="تصویر مقاله">
                     </td>                    
-                    <td>{{ Article.description }}</td>
+                    <td style="text-align: justify;">{{ Article.description }}</td>
                     <td>
                         {% for writer in Article.author.all %}
                             {{ writer.name }}{% if not forloop.last %}, {% endif %}
                         {% endfor %}
                     </td>
                     <td>{{ Article.article_group }}</td>
-                    <td>{{ Article.update_date }}</td>
+                    <td>{{ Article.update_date|date:"Y/m/d" }}</td>
                     <td>{{ Article.number_of_visit }}</td>
                     <td>
-                        <a href="">مشاهده جزییات</a>
+                        <a href="{% url 'Article:article_detaile' id=Article.id %}" class="btn2">مشاهده جزییات</a>
                     </td>
                 </tr>
             {% endfor %}

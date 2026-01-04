@@ -79,9 +79,21 @@ object-fit: cover;
   text-decoration: none; /* حذف خطوط زیرlink در حالت پیش‌فرض مرورگر */
   border: 1px solid rgba(0,0,0,.2);
   border-radius: 6px; /* گرد بودن گوشه‌ها در صورت نیاز */
+  box-shadow: 0 2px 4px rgba(0,0,0,.15); 
+  
+}
+.btn2{
+  display: inline-block;
+  width: 65px;
+  height: 60px;
+  text-align: center;
+  padding: 5px;
+  background-color: #4da6ff; /* رنگ زمینه */
+  color: #fff;
+  text-decoration: none; /* حذف خطوط زیرlink در حالت پیش‌فرض مرورگر */
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 6px; /* گرد بودن گوشه‌ها در صورت نیاز */
   box-shadow: 0 2px 4px rgba(0,0,0,.15);
-  
-  
 }
 
 .btn.primary{
@@ -147,4 +159,26 @@ table {
 /* فاصله بین جدول و صفحه‌بندی */
 .dataTables_paginate {
     margin-top: 15px;
+}
+.article-row {
+    display: flex;
+    align-items: flex-start; /* همتراز عمودی */
+    gap: 16px;               /* فاصله بین عکس و متن */
+}
+.article-row .img-300 {
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+}
+.article-row .abstract {
+    flex: 1; /* متن فضا را پر کند */
+}
+.small-carousel {
+    max-width: 600px;   /* عرض دلخواه */
+    margin: 0 auto;     /* وسط‌چین کردن */
+}
+
+.small-carousel img {
+    max-height: 400px;  /* ارتفاع دلخواه */
+    object-fit: cover;  /* برش تصویر برای تناسب */
 }

@@ -54,7 +54,7 @@ class Article(models.Model):
     description =models.TextField(verbose_name='متن کوتاه')
     abstract = models.TextField(verbose_name='چکیده مقاله')
     keywords = models.CharField (max_length=100 , verbose_name='کلمات کلیدی')
-    pdf_name = models.CharField (max_length=100 , verbose_name='نام فایل اصلی مقاله')
+    pdf_name = models.FileField (upload_to='pdfs/' ,max_length=100 , verbose_name='نام فایل اصلی مقاله')
     register_date = models.DateTimeField(default=timezone.now , verbose_name='تاریخ ثبت')
     publication_date = models.DateTimeField(null=True, blank=True ,verbose_name='تاریخ انتشار')
     update_date = models.DateTimeField(auto_now=True ,verbose_name='تاریخ به روز رسانی')
@@ -74,7 +74,8 @@ class Article(models.Model):
 class ArticleGallery(models.Model):
     id = models.AutoField(primary_key=True ,verbose_name='کد تصویر')
     article = models.ForeignKey(Article , on_delete=models.CASCADE , verbose_name='مقاله')
-    name = models.CharField(max_length=100 , verbose_name='نام نصویر')
+    name = models.CharField(max_length=200 , verbose_name='نام نصویر')
+    image = models.ImageField(upload_to='blog/', verbose_name='تصویر')
 
     def __str__(self):
         return self.name

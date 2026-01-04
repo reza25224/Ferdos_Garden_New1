@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    جزییات مقالات
+{% endblock title %}
+
+{% block content %}
+<div>
+    <h3 style="text-align: center;">{{ article_detaile.title }}</h3>
+    <br>
+    <h6 style="text-align: center; opacity: 50; color: #6b7280; /* grey-500">
+        {% for writer in article_detaile.author.all %}
+            {{ writer.name }}{% if not forloop.last %} , {% endif %}
+        {% endfor %}
+    </h6>
+</div>
+<hr>
+<div class="thumbnail article-row  container">
+    <img src="{{ media_url }}/{{ article_detaile.main_image }}" alt=""  class="img-300">
+    <div class="abstract" style="text-align: justify;">
+        <p>{{ article_detaile.abstract }}</p>
+    </div>
+</div>
+<div class="container">
+    <!-- لینک دانلود فایل PDF -->
+    {% if article_detaile.pdf_name %} 
+        <div style="text-align:left ; margin-top: 20px;"> 
+            <a href="{{ media_url }}/{{ article_detaile.pdf_name }}" 
+            class="btn btn-primary" 
+            download> 
+                دانلود فایل PDF 
+            </a>
+        </div>
+    {% endif %}
+</div>
+<hr>
+<div class="dates article-row container" style="text-align:center; margin-top:20px;">
+    <p>
+        <label>تاریخ ثبت:</label>
+        {{ article_detaile.register_date|date:"Y/m/d" }}
+    </p>
+    <p>
+        <label>تاریخ انتشار:</label>
+        {{ article_detaile.publication_date|date:"Y/m/d" }}
+    </p>
+    <p>
+        <label>تاریخ به‌روزرسانی:</label>
+        {{ article_detaile.update_date|date:"Y/m/d" }}
+    </p>
+</div>
+<hr>
+<!-- <div class="gallery container" style="text-align:center; margin-top:20px;">
+    <h4>گالری تصاویر</h4>
+    <br>
+    <div class="row">
+        {% for img in article_detaile.articlegallery_set.all %}
+            <div class="col-md-4" style="margin-bottom:15px;">
+                <img src="{{ img.image.url }}" 
+                     alt="{{ img.name }}" 
+                     class="img-fluid rounded shadow"
+                     width="300">
+                <p>{{ img.name }}</p>
+            </div>
+        {% empty %}
+            <p>هیچ تصویری برای این مقاله ثبت نشده است.</p>
+        {% endfor %}
+    </div>
+</div> -->
+<div class="container my-4" style="max-width: 600px;">
+  <h4 class="text-center mb-3">گالری تصاویر</h4>
+  <div id="articleGalleryCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      {% for img in article_detaile.articlegallery_set.all %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+          <img src="{{ img.image.url }}" class="d-block w-100" alt="{{ img.name }}" style="max-height: 420px; object-fit: cover;">
+          <div class="carousel-caption d-none d-md-block">
+            <p>{{ img.name }}</p>
+          </div>
+        </div>
+      {% empty %}
+        <p>هیچ تصویری برای این مقاله ثبت نشده است.</p>
+      {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#articleGalleryCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">قبلی</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#articleGalleryCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">بعدی</span>
+    </button>
+  </div>
+</div>
+
+
+{% endblock content %}
