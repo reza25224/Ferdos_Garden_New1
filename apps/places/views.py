@@ -1,8 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.views.generic.list import ListView
 from .models import Place,TicketPrice
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse,HttpResponseNotFound
+from .models import MessageToUs
+from .forms import MessageForm
+from django.contrib import messages
 
 #تاریخچه----------------------------------------------------------
 def garden_history(request):
@@ -52,3 +55,21 @@ def visiting_schedule (request):
        'price' :price
    }
    return render ( request ,'place_app/visiting_schedule.html',context)
+
+#تماس با ما----------------------------------------------------------
+def contact_view(request):
+    form = MessageForm(request.POST)
+    if form.is_valid():
+        cd = form.cleaned_data
+        msg = MessageToUs()
+        msg.full_name = cd['full_name']        
+        msg.email = cd['email']
+        msg.subject = cd['subject']
+        msg.mesage = cd['mesage']
+        msg.save()
+        messages.success (request,'پیام شما ارسال شد','success')
+        return redirect ('main:index')
+    return render (request,'place_app/contact.html',{'form':form})
+
+
+

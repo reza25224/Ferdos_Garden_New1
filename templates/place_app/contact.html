@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    تماس با ما
+{% endblock title %}
+
+{% block content %}
+<main class="contact_main" style="margin-right: 50px;">
+    <section class="contact_info">
+            <h2>اطلاعات تماس</h2>            
+            <p>
+                <i></i>
+                    تهران ، خیابان ولیعصر ، نرسیده به میدان تجریش ، کوچه بخشایش 
+                <br>
+                <i></i>
+                    کد پستی : 19617 - 43946
+                    <br>
+                <i></i>
+                    شماره تماس :  22705005 
+            </p> 
+            <h2>مسیرهای دسترسی</h2>
+            <p style="text-align:justify;">
+                <i></i>
+                توسعه شهر تهران چه در درون حصار ناصری و چه در بیرون آن، سرنوشت بسیار ی از با غهای قاجاری را دستخوش تغییرات گسترده کرده است.
+                یکی از این نمونه ها ی پرشمار باغ فردوس شمیران است که خوشبختانه بخش کوچکی از آن باقی مانده است.
+            </p>
+            <br>
+    </section>
+    <section class="contact_info">
+        <h2>فرم تماس با ما</h2>
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                  <!-- <div>
+                    Full Name : {{form.full_name}}
+                  </div>
+                  <div>
+                    Email : {{form.email}}
+                  </div>
+                  <div>
+                    Subject : {{form.subject}}
+                  </div>
+                  <div>
+                    Message : {{form.mesage}}
+                  </div> -->
+                <input type="submit" value="ارسال پیام">
+            </form>
+    </section>
+</main>
+
+{% endblock content %}

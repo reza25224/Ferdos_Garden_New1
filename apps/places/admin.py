@@ -14,6 +14,6 @@ class TicketPrice(admin.ModelAdmin):
     list_display = ('place','visitor_type','price')
 
 
-@admin.register(Message)
-class Message(admin.ModelAdmin):
+@admin.register(MessageToUs)
+class MessageToUs(admin.ModelAdmin):
     list_display = ('full_name','email','subject','mesage','is_seen','register_date')

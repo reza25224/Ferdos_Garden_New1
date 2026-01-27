@@ -9,7 +9,7 @@
 {% block content %}
     <h3 style="text-align: center;"> لیست مقالات</h3>
     <div class="container">
-    <table id="lastPricesTable" class="display">
+    <table id="mytable" class="display">
         <thead>
             <tr>
                 <th style="text-align: center;">عنوان مقاله</th>
@@ -50,15 +50,19 @@
     </div>
 
     <!-- بارگذاری کتابخانه‌های DataTables -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css"> -->
+    <link rel="stylesheet" href="{% static 'css/dataTables.min.css' %}">
+    <!-- <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script> -->
+    <script src="{% static 'js/jquery-4.0.0.min.js' %}"></script>
+    <!-- <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script> -->
+    <script src="{% static 'js/dataTables.min.js' %}"></script>
 
     <script>
     $(document).ready(function() {
-        $('#lastPricesTable').DataTable({
+        $('#mytable').DataTable({
             language: {
-                url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/fa.json' // فارسی‌سازی
+                // url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/fa.json' // فارسی‌سازی
+                url: "{% static 'lang/fa.json'%}"
             },
             pageLength: 10,   // تعداد ردیف‌ها در هر صفحه
             lengthMenu: [5, 10, 25, 50], // گزینه‌های انتخاب تعداد

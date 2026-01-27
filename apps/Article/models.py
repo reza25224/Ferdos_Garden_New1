@@ -84,4 +84,8 @@ class ArticleGallery(models.Model):
         verbose_name = 'تصویر'
         verbose_name_plural = 'تصاویر'
         db_table = 't_ArticleGallery'
+
+
+
+    
     

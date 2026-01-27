@@ -47,8 +47,9 @@ class TicketPrice(models.Model):
         db_table = 't_ticket_price'
 
 #--------------------------------------------------------------------------------------
-class Message(models.Model):
+class MessageToUs(models.Model):
     full_name = models.CharField(max_length=100 , verbose_name='نام و نام خانوادگی')
+    
     email = models.EmailField(max_length=200 , verbose_name='ایمیل')
     subject = models.CharField(max_length=200 , verbose_name='عنوان پیام')
     mesage = models.TextField(verbose_name='متن پیام')

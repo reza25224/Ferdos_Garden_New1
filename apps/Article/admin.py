@@ -24,3 +24,4 @@ class Article(admin.ModelAdmin):
 @admin.register(ArticleGallery)
 class ArticleGallery(admin.ModelAdmin):
     list_display = ('id','article','name')
+

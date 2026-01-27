@@ -8,16 +8,22 @@
         {% block title %}{% endblock title %}
     </title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.rtl.min.css' %}">
+    <script src="{% static 'js/bootstrap.js'% }"></script>
+    <script src="{% static 'js/jquery-4.0.0.min.js' %}"></script>
 
 </head>
 <body class="body">
     {% include 'partials/header.html' %}
     {% include 'partials/navbar.html' %}
     <br>
-    
+   
+    <div class="container">
+        {% include 'partials/message.html' %}
+        {% block content %}{% endblock content %}
+    </div>
 
-    {% block content %}
-    {% endblock content %}
     {% include 'partials/scripts.html' %}    
 </body>
 </html>

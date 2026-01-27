@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.rtl.min.css' %}">
+    <script src="{% static 'js/bootstrap.js'% }"></script>
+    <script src="{% static 'js/jquery-4.0.0.min.js' %}"></script>
+</head>
+<body>
+    <header >
+        <nav>
+            <div >
+                <a href="{% url 'main:index' %}">خانه</a>
+                <li>
+                    <a href="#">معرفی باغ</a>
+                    <ul>
+                        <li><a href="{% url 'places:history' %}">تاریخچه</a></li>
+                        <li><a href="{% url 'places:section' %}">بخش های باغ</a></li>
+                        <li><a href="{% url 'places:visit_route' %}">مسیربازدید</a></li>
+                        <li><a href="{% url 'places:visiting_schedule' %}">شرایط و قوانین</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">گالری</a></li>
+                <li><a href="#">خاطرات بازدید</a></li>
+                <li><a href="#">آموزش و پژوهش</a></li>
+                <li><a href="#"></a>مقالات</li>
+                    <ul>
+                        <li><a href="{% url 'Article:Article_view' %}">لیست مقاله ها</a></li>
+                        <li><a href="{% url 'Article:Article_create' %}">ثبت مقاله جدید</a></li>
+                    </ul>
+                <li><a href="{% url 'places:contact_view' %}">تماس باما</a></li>
+             </div>
+        </nav>
+         
+    </header>
+    
+</body>
+</html>
