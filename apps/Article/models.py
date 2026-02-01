@@ -74,15 +74,15 @@ class Article(models.Model):
 class ArticleGallery(models.Model):
     id = models.AutoField(primary_key=True ,verbose_name='کد تصویر')
     article = models.ForeignKey(Article , on_delete=models.CASCADE , verbose_name='مقاله')
-    name = models.CharField(max_length=200 , verbose_name='نام نصویر')
+    name = models.CharField(max_length=200 , verbose_name='نام تصویر')
     image = models.ImageField(upload_to='blog/', verbose_name='تصویر')
 
     def __str__(self):
         return self.name
     
     class Meta :
-        verbose_name = 'تصویر'
-        verbose_name_plural = 'تصاویر'
+        verbose_name = ' مقاله تصویر'
+        verbose_name_plural = 'تصاویر مقالات'
         db_table = 't_ArticleGallery'
 
 

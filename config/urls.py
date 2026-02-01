@@ -8,5 +8,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('apps.main.urls', namespace='main'),name='main'),
     path('places/',include('apps.places.urls',namespace='places'),name='places'),
-    path('Article/',include('apps.Article.urls',namespace='Article'),name='Article')
+    path('Article/',include('apps.Article.urls',namespace='Article'),name='Article'),
+    path('workshop/',include('apps.workshop.urls',namespace = 'workshop'),name ='workshop')
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'apps.main.apps.MainConfig',
     'apps.places.apps.PlacesConfig',
     'apps.Article.apps.ArticleConfig',
+    'apps.workshop.apps.WorkshopConfig',
 ]
 
 MIDDLEWARE = [
