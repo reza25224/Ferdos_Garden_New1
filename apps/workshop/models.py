@@ -20,8 +20,8 @@ class WorkshopStatus(models.Model):
         return self.title
     
     class Meta :
-        verbose_name = 'کارگاه'
-        verbose_name_plural = 'کارگاهها'
+        verbose_name = 'وضعیت کارگاه'
+        verbose_name_plural = 'وضعیت کارگاهها '
         db_table = 't_Workshop_Status'
 
 #---------------------------------------------------Workshop
@@ -44,8 +44,8 @@ class Workshop (models.Model):
         return self.title
     
     class Meta:
-        verbose_name = ''
-        verbose_name_plural = ''
+        verbose_name = 'کارگاه'
+        verbose_name_plural = 'کارگاهها'
         db_table = ''
 
 #------------------------------------------------------WorkshopGallery

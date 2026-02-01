@@ -1,9 +1,8 @@
 from django.shortcuts import render,redirect
 from django.views.generic.list import ListView
-from .models import Place,TicketPrice
+from .models import Place,TicketPrice,MessageToUs
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse,HttpResponseNotFound
-from .models import MessageToUs
 from .forms import MessageForm
 from django.contrib import messages
 
