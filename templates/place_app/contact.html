@@ -28,24 +28,35 @@
     </section>
     <section class="contact_info">
         <h2>فرم تماس با ما</h2>
-            <form action="" method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form.as_p }}
-                  <!-- <div>
-                    Full Name : {{form.full_name}}
-                  </div>
-                  <div>
-                    Email : {{form.email}}
-                  </div>
-                  <div>
-                    Subject : {{form.subject}}
-                  </div>
-                  <div>
-                    Message : {{form.mesage}}
-                  </div> -->
-                <input type="submit" value="ارسال پیام">
+            <form class="row g-3" action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">نام و نام خانوادگی</label>
+             : {{form.full_name}}
+            </div>
+
+            <div class="mb-3">
+            <label for="inputEmail4" class="form-label">ایمیل</label>
+             : {{form.email}}
+            </div>
+
+             <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">عنوان پیام</label>
+            : {{form.subject}}
+            </div>
+
+            <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">متن پیام</label>
+             : {{form.mesage}}
+            </div>
+                
             </form>
+
+
+            <input type="submit" value="ارسال پیام">
+            
     </section>
+
 </main>
 
 {% endblock content %}

@@ -1,25 +1,62 @@
 {% extends 'base.html' %}
+{% load static %}
+
 
 {% block title %}
-لیست کارگاهها
+   لیست کارگاهها
 {% endblock title %}
 
 {% block content %}
-  <div class="row" style="margin-right: 50px;  text-align: justify;">
-        {% for workshop in workshop %}
-      <div class="col-sm-6 col-sm-4 col-lg-4">
-          <div class="thumbanil">
-            <img src="{{media_url}}/{{workshop.image}}" alt="" class="img-300">
-          </div>
-          <br>
-          <div class="caption">
-            <h4>{{workshop.title}}</h4>
-            <p class="description">{{workshop.description}}</p>
-            <p>
-              <a href="#" class="btn1">مشاهده جزئیات</a>
-            </p>
-          </div>
-      </div>
-    {% endfor %}
-  </div>
+    <h3 style="text-align: center;">لیست کارگاهها</h3>
+    <div class="container">
+    <table id="mytable" class="display">
+        <thead>
+            <tr>
+                <th style="text-align: center;">عنوان کارگاه</th>
+                <th style="text-align: center;">تصویر</th>                
+                <th style="text-align: center;">خلاصه متن</th>
+                <th style="text-align: center;">تاریخ برگزاری</th>
+                <th style="text-align: center;">مکان برگزاری</th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for workshop in workshop %}
+                <tr>
+                    <td>{{ workshop.title }}</td>
+                    <td>
+                        <img src="{{media_url}}{{workshop.main_image}}" alt="" class="img-300">
+                    </td>                    
+                    <td style="text-align: justify;">{{ workshop.description }}</td>
+                    <td>{{ workshop.date_event }}</td>
+                    <td>{{ workshop.location }}</td>
+                    <td>
+                        <a href="{% url 'workshop:workshop_detaile' id=workshop.id %}" class="btn2">مشاهده جزییات</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+    <!-- بارگذاری کتابخانه‌های DataTables -->
+    <link rel="stylesheet" href="{% static 'css/dataTables.min.css' %}">
+    <script src="{% static 'js/jquery-4.0.0.min.js' %}"></script>
+    <script src="{% static 'js/dataTables.min.js' %}"></script>
+
+    <script>
+    $(document).ready(function() {
+        $('#mytable').DataTable({
+            language: {
+                url: "{% static 'lang/fa.json' %}"
+            },
+            pageLength: 2,   // تعداد ردیف‌ها در هر صفحه
+            lengthMenu: [5, 10, 25, 50], // گزینه‌های انتخاب تعداد
+            ordering: true,   // مرتب‌سازی ستون‌ها
+            searching: true   // جستجو در جدول
+        });
+
+    });
+     </script>
 {% endblock content %}

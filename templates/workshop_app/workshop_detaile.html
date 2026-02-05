@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+جزئیات کارگاه 
+{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <div class="caption">
+            <h4>{{workshop_detaile.title}}</h4>
+        </div>
+        <hr>
+       <section class="row g-3" style="margin-right: 50px; ">
+                <div class="col-md-4">
+                    <img src="{{workshop_detaile.main_image.url}}" alt="" class="img-300">
+                </div>
+            
+                <div class="col-md-8">
+                    <p>تاریخ برگزاری : {{workshop_detaile.date_event}}</p>
+                    <p>مکان برگزاری : {{workshop_detaile.location }}</p>
+                    <p>مدرس : {{workshop_detaile.teacher }}</p>
+                </div>
+          
+       </section>
+       <hr>
+        <div>
+            <p>اطلاعات تکمیلی  : </p>
+            <p>{{workshop_detaile.description }}</p>            
+        </div>
+        <hr>
+        <div>
+            <p style="text-align: justify;">نحوه ثبت نام : {{workshop_detaile.register_way }}</p>
+        </div>
+        <hr>
+        <div>
+        <p>'گزارش کارگاه' : </p>
+        <p style="text-align: justify;">{{workshop_detaile.report_text }}</p>
+        </div>
+    </div>
+{% endblock content %}

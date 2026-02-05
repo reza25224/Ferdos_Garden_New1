@@ -28,12 +28,13 @@ class WorkshopStatus(models.Model):
 class Workshop (models.Model):
     id = models.AutoField(primary_key=True , verbose_name='کد کارگاه')
     title = models.CharField(max_length=200 , verbose_name='عنوان کارگاه')
-    main_image = models.ImageField(upload_to=workshop_image_path , verbose_name='تصویر اصلی')
+    main_image = models.ImageField(upload_to=workshop_image_path, verbose_name='تصویر اصلی')
     date_event = models.DateTimeField(default=timezone.now , verbose_name='تاریخ و زمان برگزاری ')
     location = models.CharField(max_length=200 , verbose_name='مکان برگزاری')
     teacher = models.CharField(max_length=200 , verbose_name='مدرس')
     description = models.TextField(verbose_name='اطلاعات کارگاه ')
     register_way = models.TextField(verbose_name='نحوه ثبت نام')
+    # register_link = models.URLField(verbose_name='لینک ثبت نام')
     report_text = models.TextField(default='null' , null=True , verbose_name='متن گزارش کارگاه ')
     num_of_visit = models.IntegerField(default=0 , verbose_name='تعداد بازدید از گزارش')
     register_date = models.DateTimeField(default=timezone.now , verbose_name='تاریخ ثبت')
@@ -47,6 +48,7 @@ class Workshop (models.Model):
         verbose_name = 'کارگاه'
         verbose_name_plural = 'کارگاهها'
         db_table = ''
+
 
 #------------------------------------------------------WorkshopGallery
 class WorkshopGallery (models.Model):
