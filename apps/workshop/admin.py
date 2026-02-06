@@ -7,5 +7,5 @@ class WorkshopAdmin(admin.ModelAdmin):
 
 @admin.register(WorkshopStatus)
 class WorkshopStatusAdmin(admin.ModelAdmin):
-    list_display = ('title',)
+    list_display = ('title','id')
 

@@ -13,10 +13,11 @@
         <thead>
             <tr>
                 <th style="text-align: center;">عنوان کارگاه</th>
-                <th style="text-align: center;">تصویر</th>                
-                <th style="text-align: center;">خلاصه متن</th>
+                <th style="text-align: center;"></th>                
+                <th style="text-align: center;">توضیحات</th>
                 <th style="text-align: center;">تاریخ برگزاری</th>
                 <th style="text-align: center;">مکان برگزاری</th>
+                <th style="text-align: center;">وضعیت کارگاه</th>
 
                 <th></th>
             </tr>
@@ -31,8 +32,21 @@
                     <td style="text-align: justify;">{{ workshop.description }}</td>
                     <td>{{ workshop.date_event }}</td>
                     <td>{{ workshop.location }}</td>
-                    <td>
+                    <td>{{ workshop.workshop_statue }}</td>
+                    <!-- <td>
                         <a href="{% url 'workshop:workshop_detaile' id=workshop.id %}" class="btn2">مشاهده جزییات</a>
+                    </td> -->
+                    <td>
+                        {% if workshop.is_active and workshop.workshop_statue.id == 3 %}
+                            <a href="{% url 'workshop:workshop_detaile' id=workshop.id %}" class="btn2">
+                                مشاهده جزئیات
+                            </a>
+                        {% else %}
+
+                            <a href="#" class="btn2 not-held">
+                                مشاهده جزئیات
+                            </a>
+                        {% endif %}
                     </td>
                 </tr>
             {% endfor %}

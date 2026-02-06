@@ -7,7 +7,8 @@ from .models import Workshop
 
 #--------------------------------------------
 def workshop_list(request):
-    workshop = Workshop.objects.all()
+
+    workshop = Workshop.objects.filter(is_active = True)
     context = {
         'workshop' : workshop,
         'media_url': settings.MEDIA_URL,
